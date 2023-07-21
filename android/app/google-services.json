@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "304500836786",
+    "project_id": "email-auth-ca1a7",
+    "storage_bucket": "email-auth-ca1a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304500836786:android:dd51dff210724af85d7cab",
+        "android_client_info": {
+          "package_name": "com.example.email_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304500836786-o27u1ebu5p023adpm7rnnplt55gr4c0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUhxGm1kfvDZi4lzjJ5MhO6oc-RoGFI9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304500836786-o27u1ebu5p023adpm7rnnplt55gr4c0a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "304500836786-713p0r15idi22l2sv0b1r446de97qudr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.emailAuth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
