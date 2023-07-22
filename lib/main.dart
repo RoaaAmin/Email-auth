@@ -4,8 +4,6 @@ import 'package:email_auth/screens/login_screen.dart';
 import 'package:email_auth/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-
 import 'auth.dart';
 import 'firebase_options/firebase_options.dart';
 

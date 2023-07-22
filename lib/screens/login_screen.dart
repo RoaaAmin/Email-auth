@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen>{
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   bool obscureText = true;
   TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordConroller = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
 
   void openSignupScreen(){
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen>{
   void dispose(){
     super.dispose();
     _emailController.dispose();
-    _passwordConroller.dispose();
+    _passwordController.dispose();
   }
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen>{
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextField(
-                        controller: _passwordConroller,
+                        controller: _passwordController,
                        // obscureText: true,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen>{
                                 obscureText = !obscureText;
                               });
                             },
-                            child: Icon(obscureText ? Icons.visibility_off : Icons.visibility,),
+                            child: Icon(obscureText ? Icons.visibility_off : Icons.visibility,color: Colors.grey,),
                           ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
@@ -199,7 +199,7 @@ SizedBox(height: 25),
   void loginValidation(){
     if(_emailController.text==null||_emailController.text.contains('@')==false||_emailController.text.contains('.com')==false){
       showInSnackBar('Invalid Email', Colors.red, Colors.white, 2, context, _scaffoldKey);
-    }else if(_passwordConroller.text==null||_passwordConroller.text.length<6){
+    }else if(_passwordController.text==null||_passwordController.text.length<6){
       showInSnackBar('Invalid Password', Colors.red, Colors.white, 2, context, _scaffoldKey);
     }else{
       print('Validation Completed');
@@ -213,7 +213,7 @@ SizedBox(height: 25),
     try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text,
-        password: _passwordConroller.text,
+        password: _passwordController.text,
       ).then((userCredentials)async{
         if(userCredentials.user?.uid!=null){
           if(userCredentials.user?.emailVerified==false){
@@ -241,12 +241,12 @@ SizedBox(height: 25),
       });
     }on FirebaseAuthException catch(e){
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      showInSnackBar('Login failed due to incorrect account information.', Colors.red, Colors.white, 3, context, _scaffoldKey);
+      showInSnackBar('Login failed, incorrect account information.', Colors.red, Colors.white, 3, context, _scaffoldKey);
     }
   }
   clearControllers(){
     _emailController.clear();
-    _passwordConroller.clear();
+    _passwordController.clear();
 
   }
 
@@ -259,12 +259,12 @@ SizedBox(height: 25),
           .get().then((whereResult) async{
         if(whereResult==null && whereResult.docs.isEmpty){
           showInSnackBar('There is no record for this email', Colors.red, Colors.white, 3, context, _scaffoldKey);
-          _passwordConroller.clear();
+          _passwordController.clear();
         }else{
           try {
             await FirebaseAuth.instance.sendPasswordResetEmail(email: _emailController.text).then((metaData) {
               showInSnackBar('Reset password email has been sent',  Colors.green, Colors.white, 2, context, _scaffoldKey);
-              _passwordConroller.clear();
+              _passwordController.clear();
             });
           } catch (e) {
             showInSnackBar('There is no record for this email', Colors.red, Colors.white, 3, context, _scaffoldKey);

@@ -8,8 +8,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
-
-
 import '../main.dart';
 import '../models/SnackBar.dart';
 
@@ -25,7 +23,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
-// user info
+/// user info
   String Error = '';
 
   TextEditingController _emailController = TextEditingController();
@@ -97,7 +95,7 @@ bool passwordConfirmed(){
               mainAxisAlignment: MainAxisAlignment.center,
               children:[
 
-//Title
+///Title
                 Text('SIGN UP',
                   style: GoogleFonts.robotoCondensed(fontSize:40, fontWeight: FontWeight.bold),
                 ),
@@ -224,7 +222,7 @@ bool passwordConfirmed(){
                 ),
                 //SizedBox(height: 15),
 
-////////////// Radio buttons
+/// Radio buttons
     Padding(
     padding: const EdgeInsets.symmetric(horizontal: 25),
     child: Container(
@@ -289,7 +287,7 @@ bool passwordConfirmed(){
   void signUpValidation(){
 
     if(nameController.text==null||nameController.text.length<3){
-      showInSnackBar('Please Enter you name.', Colors.red, Colors.white, 2, context, _scaffoldKey);
+      showInSnackBar('Please Enter valid you name.', Colors.red, Colors.white, 2, context, _scaffoldKey);
     }else if(_emailController.text==null||_emailController.text.contains('@')==false||_emailController.text.contains('.com')==false){
       showInSnackBar('Invalid Email', Colors.red, Colors.white, 2, context, _scaffoldKey);
     }else if(phoneNumberController.text==null||phoneNumberController.text.contains('05')==false||phoneNumberController.text.length<10){
@@ -339,7 +337,7 @@ bool passwordConfirmed(){
               await FirebaseAuth.instance.currentUser!.delete().then((value) async{
                 await FirebaseAuth.instance.signOut().then((value) {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                 // showInSnackBar('An error occur!', Colors.red, Colors.white, 3, context, _scaffoldKey);
+                  showInSnackBar('An error occur!', Colors.red, Colors.white, 3, context, _scaffoldKey);
                   print('$e');
                 });
               });
