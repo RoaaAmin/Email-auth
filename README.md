@@ -27,6 +27,6 @@ samples, guidance on mobile development, and a full API reference.
 # Preview 
 
 ![WhatsApp Image 2023-07-23 at 9 32 21 PM_iphone13progold_portrait](https://github.com/RoaaAmin/Email-auth/assets/66753937/fc0f76aa-236b-4099-ac24-04d91bad8e01)
-![Uploading WhatsApp Image 2023-07-23 at 9.32.19 PM_iphone13progold_portrait.png…]()
 
+![WhatsApp Image 2023-07-23 at 9 32 21 PM_iphone13progold_portrait](https://github.com/RoaaAmin/Email-auth/assets/66753937/e6fe34ce-68f9-40a0-9487-6436dc3b8958)
 
